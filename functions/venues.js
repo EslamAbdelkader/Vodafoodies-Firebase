@@ -24,6 +24,7 @@ exports.listedVenues = function(req, res){
       res.send(obj)
     }).catch(function(error){
       console.log(error);
+      res.status(500).send({error : "couldn't retrieve data from the database"});
     });
   };
 
