@@ -1,8 +1,6 @@
 // The Firebase functions
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-
-// Firebase Database Reference
 const database = admin.database();
 
 // putVenueOrder method to insert a venue order in the database
@@ -29,7 +27,5 @@ exports.handler = function(req, res){
   userVenueOrders.update(obj);
 
   // Adding the venueOrderID to the request and forwarding to the putUserOrder function
-  // req.body.venue_order_id = venueOrderID
-  // console.log(req.body);
   res.redirect(307, 'putUserOrder?venue_order_id=' + venueOrderID);
 };
