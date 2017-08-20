@@ -11,7 +11,7 @@ exports.handler = function(req, res){
   var users = database.ref("users");
 
   // Getting data from the request
-  var userID = req.get("uid");  // user ID from the header
+  var userID = req.get("uid");
   var venueID = req.body.venue_id
 
   // Pushing the venueOrder and getting back the key generated

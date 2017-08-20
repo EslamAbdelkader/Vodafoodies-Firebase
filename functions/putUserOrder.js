@@ -1,8 +1,6 @@
 // The Firebase functions
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-
-// Firebase Database Reference
 const database = admin.database();
 
 // putVenueOrder method to insert a venue order in the database
