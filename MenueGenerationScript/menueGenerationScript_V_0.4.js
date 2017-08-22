@@ -50,5 +50,5 @@ $(".menu.ng-scope").children().each(
 var str = JSON.stringify(json, null, 2);
 var x = window.open();
     x.document.open();
-    x.document.write('<html><body><pre>' + str + '</pre></body></html>');
+    x.document.write('<html><body>' + str + '</body></html>');
     x.document.close();

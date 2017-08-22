@@ -13,7 +13,8 @@ exports.handler = function(req, res) {
     if (venueOrderID == undefined){
       venueOrderID = req.query.venue_order_id
     }
-    var orderItems = JSON.parse(req.body.order_items)
+
+    var orderItems = req.body.order_items
   
     //The DB references needed
     var venueOrders = database.ref("venueOrders");

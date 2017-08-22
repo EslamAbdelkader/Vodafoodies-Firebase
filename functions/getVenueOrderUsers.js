@@ -27,6 +27,7 @@ exports.handler = function (req, res) {
       for (var i = 0; i < usersIDs.length; i++) {
         var userID = usersIDs[i]
         var userObj = {}
+        userObj.id = usersIDs[i]
         userObj.name = users[userID].name
         userObj.img = users[userID].img
         usersData.push(userObj);
