@@ -3,7 +3,8 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const database = admin.database();
 
-// COMMENT ON WHAT THE FUNCTION DOES GOES HERE
+// Returns a list of all the users who have ordered in this venue order 
+// with related data about their orders
 exports.handler = function (req, res) {
   // Getting data from the request
   var venueOrderId = req.body.venue_order_id
