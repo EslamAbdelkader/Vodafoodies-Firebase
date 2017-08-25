@@ -1,8 +1,6 @@
 // The Firebase functions
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-
-// Firebase Database Reference
 const database = admin.database();
 
 // Deletes the complete user order from the Venue order ID provided

@@ -19,12 +19,16 @@ const getVenueOrderUsers = require('./getVenueOrderUsers.js')
 const putUserOrder = require('./putUserOrder.js')
 const putVenueOrder = require('./putVenueOrder.js')
 const venues = require('./venues.js')
+const users = require('./users.js')
 
 /*
 ==============================================================================
 ==                        Exporting Methods                                 ==
 ============================================================================== 
 */
+// Handling Users
+exports.updateUserData = functions.https.onRequest(users.updateUser);
+
 // Getting Venues data
 exports.addVenue = functions.https.onRequest(venues.addVenue);
 exports.listedVenues = functions.https.onRequest(venues.listedVenues);
