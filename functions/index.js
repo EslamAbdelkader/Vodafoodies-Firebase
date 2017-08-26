@@ -7,7 +7,7 @@ admin.initializeApp(functions.config().firebase);
 /*
 ==============================================================================
 ==                           Importnig needed files                         ==
-============================================================================== 
+==============================================================================
 */
 const deleteUserOrder = require('./deleteUserOrder.js')
 const deleteUserOrderItem = require('./deleteUserOrderItem.js')
@@ -18,13 +18,14 @@ const getUserOrders = require('./getUserOrders.js')
 const getVenueOrderUsers = require('./getVenueOrderUsers.js')
 const putUserOrder = require('./putUserOrder.js')
 const putVenueOrder = require('./putVenueOrder.js')
+const getVenueData = require('./getVenueData.js')
 const venues = require('./venues.js')
 const users = require('./users.js')
 
 /*
 ==============================================================================
 ==                        Exporting Methods                                 ==
-============================================================================== 
+==============================================================================
 */
 // Handling Users
 exports.updateUserData = functions.https.onRequest(users.updateUser);
@@ -32,6 +33,7 @@ exports.updateUserData = functions.https.onRequest(users.updateUser);
 // Getting Venues data
 exports.addVenue = functions.https.onRequest(venues.addVenue);
 exports.listedVenues = functions.https.onRequest(venues.listedVenues);
+exports.getVenueData = functions.https.onRequest(getVenueData.handler);
 
 // Adding Orders
 exports.putVenueOrder = functions.https.onRequest(putVenueOrder.handler);
