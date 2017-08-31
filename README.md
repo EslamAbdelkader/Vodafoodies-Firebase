@@ -1,5 +1,4 @@
 # Firebase ☁️ APIs for Vodafoodies app
---
 ### __Base URL :__
 
     https://us-central1-vodafoodies-e3f2f.cloudfunctions.net
@@ -13,26 +12,25 @@ _All requests must contain the following headers:_
 ### __Functions :__
 
 - 👤 [**Users**](#users)
-	- [updateUserData](#updateUserData)
+	- [updateUserData](#updateuserdata)
 - 👨🏻‍🍳 [**Venue Data**](#venue-data)
-	- [addVenue](#addVenue)
-	- [listedVenues](#listedVenues)
-	- [getVenueMenu](#getVenueMenu)
+	- [addVenue](#addvenue)
+	- [listedVenues](#listedvenues)
+	- [getVenueMenu](#getvenuemenu)
 - ➕ [**Adding Orders**](#adding-orders)
-	- [addVenueOrder](#addVenueOrder)
-	- [addUserOrder](#addUserOrder)
+	- [addVenueOrder](#addvenueorder)
+	- [addUserOrder](#adduserorder)
 - 📋 [**Getting Venues Orders**](#getting-venues-orders)
-	- [getOpenOrders](#getOpenOrders)
-	- [getOrderSum](#getOrderSum)
-	- [getOrderItemUsers](#getOrderItemUsers)
-	- [getVenueOrderUsers](#getVenueOrderUsers)
+	- [getOpenOrders](#getopenorders)
+	- [getOrderSum](#getordersum)
+	- [getOrderItemUsers](#getorderitemusers)
+	- [getVenueOrderUsers](#getvenueorderusers)
 - 🍽 [**Getting User Orders**](#getting-user-orders)
-	- [getUserOrders](#getUserOrders)
-	- [deleteUserOrderItem](#deleteUserOrderItem)
-	- [deleteUserOrder](#deleteUserOrder)
+	- [getUserOrders](#getuserorders)
+	- [deleteUserOrderItem](#deleteuserorderitem)
+	- [deleteUserOrder](#deleteuserorder)
 	
-<br/>
-<br/>
+
 ## Users
 
 ### updateUserData
@@ -69,8 +67,7 @@ STATUS_CODE: 200
 }
 ```
 	
-<br/>
-<br/>
+
 ## Venue Data
 
 ### addVenue
@@ -95,7 +92,7 @@ SUCCESS:
 "Venue Added successfully to database"
 ```
 
-<br/>
+
 ### listedVenues
 >Returns an array of all the listed Venues from the database including both the name and the ID of each Venue 
 
@@ -120,7 +117,7 @@ STATUS_CODE: 200
 }
 ```
 
-<br/>
+
 ### getVenueMenu
 >Returns the menu of the Venue with the ID provided as parameter
 
@@ -143,8 +140,6 @@ SUCCESS:
 >Retruns the _menue_ node from the Venue object generated from this [script](https://github.com/mikeAttia/Vodafoodies-Firebase/blob/master/MenueGenerationScript/menueGenerationScript_V_0.4.js)
 
 
-<br/>
-<br/>
 ## Adding Orders
 
 ### addVenueOrder
@@ -178,7 +173,7 @@ __Response :__
 
 >Redirects to [addUserOrder](#addUserOrder) to add the user order to the recently created venue order
 
-<br/>
+
 ### addUserOrder
 >Adds the user Order provided to the Venue order id provided
 
@@ -216,8 +211,7 @@ STATUS_CODE: 200
 ```
 
 
-<br/>
-<br/>
+
 ## Getting Venues Orders
 
 ### getOpenOrders
@@ -268,8 +262,7 @@ STATUS_CODE: 200
 ```
 
 
-<br/>
-<br/>
+
 ## Getting User Orders
 
 ### getUserOrders
