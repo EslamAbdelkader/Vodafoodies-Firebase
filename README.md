@@ -22,13 +22,13 @@ _All requests must contain the following headers:_
 	- [addUserOrder](#adduserorder)
 - 📋 [**Getting Venues Orders**](#getting-venues-orders)
 	- [getOpenOrders](#getopenorders)
-	- [getOrderSum](#getordersum)
-	- [getOrderItemUsers](#getorderitemusers)
-	- [getVenueOrderUsers](#getvenueorderusers)
+	- [getOrderSum](#getordersum)			\\NOT DOCUMENTED YET
+	- [getOrderItemUsers](#getorderitemusers) 	\\NOT DOCUMENTED YET
+	- [getVenueOrderUsers](#getvenueorderusers)	\\NOT DOCUMENTED YET
 - 🍽 [**Getting User Orders**](#getting-user-orders)
 	- [getUserOrders](#getuserorders)
-	- [deleteUserOrderItem](#deleteuserorderitem)
-	- [deleteUserOrder](#deleteuserorder)
+	- [deleteUserOrderItem](#deleteuserorderitem)	\\NOT DOCUMENTED YET
+	- [deleteUserOrder](#deleteuserorder)		\\NOT DOCUMENTED YET
 	
 
 ## Users
