@@ -11,7 +11,7 @@ exports.handler = functions.https.onRequest((req,res) =>{
   var venues = database.ref("venues");
 
   //Getting data from the request
-  var venue_id = req.body.venue_id;
+  var venue_id = req.query.venue_id;
 
   //Gettind data from the database
   venues.child(venue_id).once("value").then(function(data){
@@ -20,5 +20,6 @@ exports.handler = functions.https.onRequest((req,res) =>{
     res.send(venue);
   }).catch(function(error){
     console.log(error);
+    res.status(500).send("Couldn't Retrieve Venue Data");
   });
 });

@@ -8,7 +8,7 @@ exports.handler = function(req, res) {
     
   // Getting data from the request
   var userID = req.get("uid");
-  var venueOrderID = req.body.venue_order_id
+  var venueOrderID = req.query.venue_order_id
 
   database.ref().once("value").then(function(snapShot){
     var db = snapShot.val();
@@ -24,11 +24,13 @@ exports.handler = function(req, res) {
     var ordersDetails = []
     for (var i = 0; i < venueOrders.length; i++) {
       var order = {}
-      //TODO: Loop on each venue order to get the follwoing data
+      //Loop on each venue order to get the follwoing data
       // Venue Id, owner data, user order details (item details and count of each size)
       // Veneu Order Data
       var vOrder = db.venueOrders[venueOrders[i]];
       order.venue_order_id = venueOrders[i];
+      order.order_time = vOrder.order_time
+      order.order_status = vOrder.order_status
       order.venue_id = vOrder.venue_id
       order.venue_name = db.venues[vOrder.venue_id].venue_name
 

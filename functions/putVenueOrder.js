@@ -13,11 +13,15 @@ exports.handler = function(req, res){
   // Getting data from the request
   var userID = req.get("uid");
   var venueID = req.body.venue_id
+  var orderTime = eval(req.body.order_time)
+  var orderStatus = "open"
 
   // Pushing the venueOrder and getting back the key generated
   var venueOrderID = venueOrders.push({
     "venue_id" : venueID,
-    "user_id" : userID
+    "user_id" : userID,
+    "order_time" : orderTime,
+    "order_status" : orderStatus
   }).key
 
   // Adding the VenueOrder id to the user's venueOrders node
@@ -27,5 +31,5 @@ exports.handler = function(req, res){
   userVenueOrders.update(obj);
 
   // Adding the venueOrderID to the request and forwarding to the putUserOrder function
-  res.redirect(307, 'putUserOrder?venue_order_id=' + venueOrderID);
+  res.redirect(307, 'addUserOrder?venue_order_id=' + venueOrderID);
 };

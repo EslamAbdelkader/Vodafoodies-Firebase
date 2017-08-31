@@ -19,9 +19,8 @@ exports.handler = function(req, res) {
     //The DB references needed
     var venueOrders = database.ref("venueOrders");
     var userOrders = database.ref("users/" + userID + "/userOrders");
-    var userVenueNode = venueOrders.child(venueOrderID).child("userOrders").child(userID)
-    var itemsSumNode = venueOrders.child(venueOrderID).child("itemsSum")
-    // var venue = database.ref("venues/" + venueID);
+    var userVenueNode = venueOrders.child(venueOrderID).child("userOrders").child(userID);
+    var itemsSumNode = venueOrders.child(venueOrderID).child("itemsSum");
   
     //appending venue order ID to userOrders in User node
     var obj = {}
@@ -34,16 +33,19 @@ exports.handler = function(req, res) {
       var itemKey = orderItems[i].item_id + "_" + orderItems[i].item_size
       var itemObj = {}
       itemObj[itemKey] = orderItems[i]
-      userVenueNode.update(itemObj)
+      userVenueNode.update(itemObj);
 
       //appending the order node to the order sum node
-      var userKey = userID + "_" + orderItems[i].item_size
+      var userKey = userID + "_" + orderItems[i].item_size;
       var userObj = {}
       userObj[userKey] = orderItems[i]
-      itemsSumNode.child(orderItems[i].item_id).update(userObj)
+      itemsSumNode.child(orderItems[i].item_id).update(userObj);
     }
     
     // responding with a success message 
-    res.status(200).send({status : "Successful operation"});
+    var resObj = {}
+    resObj.status = "Success"
+    resObj.result = "User Order Added Successfully"
+    res.status(200).send(resObj);
   
   };

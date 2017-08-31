@@ -32,7 +32,7 @@ exports.addVenue = function(req, res){
     var venues = database.ref("venues");
   
     // Getting data from the request
-    var venueData = req.body.venue_data
+    var venueData = JSON.parse(req.body);
   
     //Pushing Venue Node to Database
     venues.push(venueData);

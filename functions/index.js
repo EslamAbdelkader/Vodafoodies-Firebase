@@ -33,11 +33,11 @@ exports.updateUserData = functions.https.onRequest(users.updateUser);
 // Getting Venues data
 exports.addVenue = functions.https.onRequest(venues.addVenue);
 exports.listedVenues = functions.https.onRequest(venues.listedVenues);
-exports.getVenueData = functions.https.onRequest(getVenueData.handler);
+exports.getVenueMenu = functions.https.onRequest(getVenueData.handler);
 
 // Adding Orders
-exports.putVenueOrder = functions.https.onRequest(putVenueOrder.handler);
-exports.putUserOrder = functions.https.onRequest(putUserOrder.handler);
+exports.addVenueOrder = functions.https.onRequest(putVenueOrder.handler);
+exports.addUserOrder = functions.https.onRequest(putUserOrder.handler);
 
 // Venue Order
 exports.getOpenOrders = functions.https.onRequest(getOpenOrders.handler);

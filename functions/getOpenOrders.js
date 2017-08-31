@@ -22,6 +22,8 @@ exports.handler = function (req, res) {
     for (var i = 0; i < ordersKeys.length; i++) {
       var resultItem = {}
       resultItem.venue_order_id = ordersKeys[i]
+      resultItem.oreder_time = db.venueOrders[ordersKeys[i]].order_time
+      resultItem.order_status = db.venueOrders[ordersKeys[i]].order_status
 
       // Filling in venue data
       var venueID = db.venueOrders[ordersKeys[i]].venue_id

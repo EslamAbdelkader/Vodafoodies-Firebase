@@ -6,8 +6,12 @@ const database = admin.database();
 // Adds or updates the user data to the database
 exports.updateUser = function(req, res) {
 
-    var userData = req.body.user_data;
-    var userID = Object.keys(userData)[0]
+    var userData = JSON.parse(req.body);
+    console.log("User Added with data: " + userData);
+    var userID = Object.keys(userData);
     database.ref("users/" + userID).update(userData[userID]);
-    res.status(200).send("Successfull request");
+    var resObj = {}
+    resObj.status = "Success"
+    resObj.result = "User Added Successfully"
+    res.status(200).send(resObj);
   };
