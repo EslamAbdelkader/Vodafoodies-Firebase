@@ -98,7 +98,7 @@ SUCCESS:
 
 __Path :__
 
-	GET	/listedVenues
+	GET		/listedVenues
 	
 __Parameters :__
 
@@ -108,12 +108,21 @@ __Response :__
 
 SUCCESS: 
 
-```
+```javascript
 STATUS_CODE: 200
 {
-    "9dcbafe1-2cb6ba67": "El Tabei El Domyati",
-    "b67f667e-37699a92": "Sliders",
-    "cc795c05-01ae11ff": "Majesty"
+    "9dcbafe1-2cb6ba67": {
+        "name": "El Tabei El Domyati",
+        "img": "https://s3.amazonaws.com/elmenusV3/Photos/Normal/v3aahr8n.jpg"
+    },
+    "b67f667e-37699a92": {
+        "name": "Sliders",
+        "img": "https://s3.amazonaws.com/elmenusV3/Photos/Normal/iyvcgcov89kvs4i.jpg"
+    },
+    "cc795c05-01ae11ff": {
+        "name": "Majesty",
+        "img": "https://s3.amazonaws.com/elmenusV3/Photos/Normal/i2xxnimfk9vbo6r.jpg"
+    }
 }
 ```
 
@@ -123,7 +132,7 @@ STATUS_CODE: 200
 
 __Path :__
 
-	GET	/getVenueMenu
+	GET		/getVenueMenu
 	
 __Parameters :__
 
@@ -219,7 +228,7 @@ STATUS_CODE: 200
 
 __Path :__
 
-	GET	/getOpenOrders
+	GET		/getOpenOrders
 	
 __Parameters :__
 
@@ -270,7 +279,7 @@ STATUS_CODE: 200
 
 __Path :__
 
-	/GET	getUserOrders
+	GET		/getUserOrders
 	
 __Parameters :__
 
