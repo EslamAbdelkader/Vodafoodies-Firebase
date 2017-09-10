@@ -98,7 +98,7 @@ SUCCESS:
 
 __Path :__
 
-	GET		/listedVenues
+	GET	/listedVenues
 	
 __Parameters :__
 
@@ -132,7 +132,7 @@ STATUS_CODE: 200
 
 __Path :__
 
-	GET		/getVenueMenu
+	GET	/getVenueMenu
 	
 __Parameters :__
 
@@ -228,7 +228,7 @@ STATUS_CODE: 200
 
 __Path :__
 
-	GET		/getOpenOrders
+	GET	/getOpenOrders
 	
 __Parameters :__
 
@@ -279,7 +279,7 @@ STATUS_CODE: 200
 
 __Path :__
 
-	GET		/getUserOrders
+	GET	/getUserOrders
 	
 __Parameters :__
 
