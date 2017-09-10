@@ -41,8 +41,10 @@ exports.handler = function(req, res) {
       order.venue_order_admin.phone = db.users[vOrder.user_id].phone
       
       // User ordered items data
-      order.items = Object.values(vOrder.userOrders[userID])
-
+      // order.items = Object.values(vOrder.userOrders[userID])
+      order.items = Object.keys(vOrder.userOrders[userID]).map(function(key) {
+        return vOrder.userOrders[userID][key];
+    });
       ordersDetails.push(order);
     }
 
@@ -50,6 +52,9 @@ exports.handler = function(req, res) {
     resObject.status = "Successfull Request"
     resObject.result = ordersDetails
     res.status(200).send(resObject)
+  }).catch(function(error){
+
+    res.status(501).send(error)
   });
   
   };
