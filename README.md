@@ -27,8 +27,8 @@ _All requests must contain the following headers:_
 	- [getVenueOrderUsers](#getvenueorderusers)	\\NOT DOCUMENTED YET
 - 🍽 [**Getting User Orders**](#getting-user-orders)
 	- [getUserOrders](#getuserorders)
-	- [deleteUserOrderItem](#deleteuserorderitem)	\\NOT DOCUMENTED YET
-	- [deleteUserOrder](#deleteuserorder)		\\NOT DOCUMENTED YET
+	- [deleteUserOrderItem](#deleteuserorderitem)
+	- [deleteUserOrder](#deleteuserorder)
 	
 
 ## Users
@@ -325,5 +325,54 @@ STATUS_CODE: 200
     ]
 }
 ```
+
+### deleteUserOrderItem
+> Deletes the user order item provided from the venue order provided 
+
+__Path :__
+
+	DELETE		/deleteUserOrderItem
+	
+__Parameters :__
+
+```javascript
+{
+  "venue_order_id": $(VENUE_ORDER_ID),
+  "item_id" : "id of item to delete",
+  "item_size" : "size of item to delete"
+}
+```
+	
+__Response :__
+
+```javascript
+STATUS_CODE: 200
+
+Successfull Operation
+```
+
+### deleteUserOrder
+> Deletes the whole user order from the venue order provided 
+
+__Path :__
+
+	DELETE		/deleteUserOrder
+	
+__Parameters :__
+
+```javascript
+{
+  "venue_order_id": $(VENUE_ORDER_ID)
+}
+```
+	
+__Response :__
+
+```javascript
+STATUS_CODE: 200
+
+User Order deleted Successfully
+```
+
 
 
