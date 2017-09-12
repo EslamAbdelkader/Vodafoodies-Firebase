@@ -17,9 +17,10 @@ _All requests must contain the following headers:_
 	- [addVenue](#addvenue)
 	- [listedVenues](#listedvenues)
 	- [getVenueMenu](#getvenuemenu)
-- ➕ [**Adding Orders**](#adding-orders)
+- ➕ [**Adding & Removing Orders**](#adding-and-removing-orders)
 	- [addVenueOrder](#addvenueorder)
 	- [addUserOrder](#adduserorder)
+	- [deleteVenueOrder](#deleteVenueOrder)
 - 📋 [**Getting Venues Orders**](#getting-venues-orders)
 	- [getOpenOrders](#getopenorders)
 	- [getOrderSum](#getordersum)			\\NOT DOCUMENTED YET
@@ -149,7 +150,7 @@ SUCCESS:
 >Retruns the _menue_ node from the Venue object generated from this [script](https://github.com/mikeAttia/Vodafoodies-Firebase/blob/master/MenueGenerationScript/menueGenerationScript_V_0.4.js)
 
 
-## Adding Orders
+## Adding And Removing Orders
 
 ### addVenueOrder
 >Creates a Venue Order with the posting user as Admin for this Venue Order
@@ -217,6 +218,30 @@ STATUS_CODE: 200
     "status": "Success",
     "result": "User Added Successfully"
 }
+```
+
+### deleteVenueOrder
+>Removes the venue order and all its user orders
+
+__Path :__
+
+	DELETE		/deleteVenueOrder
+	
+__Parameters :__
+
+```javascript
+{
+  "venue_order_id": $(VENUE_ORDER_ID)  
+}
+```
+	
+__Response :__
+
+SUCCESS: 
+
+```javascript
+STATUS_CODE: 200
+"Order Removed Successfully"
 ```
 
 
