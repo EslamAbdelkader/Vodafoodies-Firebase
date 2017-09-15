@@ -33,12 +33,15 @@ exports.handler = function(req, res) {
       order.order_status = vOrder.order_status
       order.venue_id = vOrder.venue_id
       order.venue_name = db.venues[vOrder.venue_id].venue_name
+      order.venue_image = db.venues[vOrder.venue_id].venue_image
 
       // Venue order admin data
-      order.venue_order_admin = {}
-      order.venue_order_admin.id = vOrder.user_id
-      order.venue_order_admin.name = db.users[vOrder.user_id].name
-      order.venue_order_admin.phone = db.users[vOrder.user_id].phone
+      order.owner = {}
+      order.owner.id = vOrder.user_id
+      order.owner.name = db.users[vOrder.user_id].name
+      order.owner.phone = db.users[vOrder.user_id].phone
+      order.owner.image = db.users[vOrder.user_id].img
+      order.owner.email = db.users[vOrder.user_id].email
       
       // User ordered items data
       // order.items = Object.values(vOrder.userOrders[userID])
