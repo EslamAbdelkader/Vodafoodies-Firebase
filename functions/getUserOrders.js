@@ -42,6 +42,7 @@ exports.handler = function(req, res) {
       order.owner.phone = db.users[vOrder.user_id].phone
       order.owner.image = db.users[vOrder.user_id].img
       order.owner.email = db.users[vOrder.user_id].email
+      order.owner.profile = db.users[ownerID].fb_profile
       
       // User ordered items data
       // order.items = Object.values(vOrder.userOrders[userID])

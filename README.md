@@ -288,7 +288,8 @@ STATUS_CODE: 200
                 "name": "Michael Attia",
                 "phone": "",
                 "image": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/5876082301542631921_n.jpg",
-                "email": "mike-333@hotmail.com"
+                "email": "mike-333@hotmail.com",
+                "profile": "www.linktofbprofile.com/asdfasdgASASdgasSdf"
             }
         }
     ],
@@ -337,7 +338,9 @@ STATUS_CODE: 200
                 "id": "IiFLQGerlDZdzEbb2aaczAr739h2",
                 "name": "Michael Attia",
                 "phone": "",
-                "image": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/21743255.jpg"
+                "image": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/5876082301542631921_n.jpg",
+                "email": "mike-333@hotmail.com",
+                "profile": "www.linktofbprofile.com/asdfasdgASASdgasSdf"
             },
             "items": [
                 {

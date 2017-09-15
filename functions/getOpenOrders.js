@@ -40,6 +40,7 @@ exports.handler = function (req, res) {
       resultItem.owner.phone = db.users[ownerID].phone
       resultItem.owner.image = db.users[ownerID].img
       resultItem.owner.email = db.users[ownerID].email
+      resultItem.owner.profile = db.users[ownerID].fb_profile
 
       //Appending result item
       responseObj.result.push(resultItem);
