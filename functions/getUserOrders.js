@@ -42,7 +42,7 @@ exports.handler = function(req, res) {
       order.owner.phone = db.users[vOrder.user_id].phone
       order.owner.image = db.users[vOrder.user_id].img
       order.owner.email = db.users[vOrder.user_id].email
-      order.owner.profile = db.users[ownerID].fb_profile
+      order.owner.profile = db.users[vOrder.user_id].fb_profile
       
       // User ordered items data
       // order.items = Object.values(vOrder.userOrders[userID])
@@ -57,7 +57,7 @@ exports.handler = function(req, res) {
     resObject.result = ordersDetails
     res.status(200).send(resObject)
   }).catch(function(error){
-
+    console.log(error);
     res.status(501).send(error)
   });
   
