@@ -10,8 +10,8 @@ exports.handler = function(req, res) {
     
   // Getting data from the request
   var userID = req.get("uid");
-  var venueOrderID = req.body.venue_order_id
-  var orderedItemID = req.body.item_id
+  var venueOrderID = req.query.venue_order_id
+  var orderedItemID = req.query.item_id
 
   // DB nodes needed
   var venueOrderItem = database.ref("venueOrders/" + venueOrderID + "/itemsSum/" + orderedItemID);
@@ -28,9 +28,13 @@ exports.handler = function(req, res) {
       var resultItems = []
       for (var i = 0; i < data.length; i++) {
         var item = {}
+
+        // Calculating and splitting on the _ 
         var _index = data[i].lastIndexOf("_");
         var uID = data[i].substring(0, _index)
         var size = data[i].substr(_index + 1)
+
+        // appending the user's data to the response
         item.size = size
         item.user = {}
         item.user.id = uID
@@ -38,6 +42,7 @@ exports.handler = function(req, res) {
         item.user.phone = users[uID].phone
         item.user.image = users[uID].img
         item.user.email = users[uID].email
+        item.user.profile = users[uID].fb_profile
 
         resultItems.push(item)
       }
@@ -47,8 +52,5 @@ exports.handler = function(req, res) {
       resObject.result = resultItems
       res.status(200).send(resObject);
     });
-
-
-    
   });
   };

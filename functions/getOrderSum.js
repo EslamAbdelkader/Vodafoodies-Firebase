@@ -10,8 +10,8 @@ exports.handler = function(req, res) {
     
   // Getting data from the request
   var userID = req.get("uid");
-  var venueOrderID = req.body.venue_order_id
-
+  var venueOrderID = req.query.venue_order_id
+  console.log(venueOrderID)
   // Database Reference needed
   var orderSum = database.ref("venueOrders/" + venueOrderID + "/itemsSum")
 
@@ -35,9 +35,9 @@ exports.handler = function(req, res) {
         if (item.sizes[size] == undefined){
           item.sizes[size] = {}
           item.sizes[size].count = 1
-          item.sizes[size].price = data[itemsKeys[i]][orders[i]].price
-          item.name = data[itemsKeys[i]][orders[i]].name
-          item.category = data[itemsKeys[i]][orders[i]].category
+          item.sizes[size].price = data[itemsKeys[i]][orders[j]].price
+          item.name = data[itemsKeys[i]][orders[j]].name
+          item.category = data[itemsKeys[i]][orders[j]].category
         }
         else{
           item.sizes[size].count += 1

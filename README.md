@@ -23,9 +23,9 @@ _All requests must contain the following headers:_
 	- [deleteVenueOrder](#deleteVenueOrder)
 - 📋 [**Getting Venues Orders**](#getting-venues-orders)
 	- [getOpenOrders](#getopenorders)
-	- [getOrderSum](#getordersum)			\\NOT DOCUMENTED YET
+	- [getOrderSum](#getordersum)	
+	- [getVenueOrderUsers](#getvenueorderusers)
 	- [getOrderItemUsers](#getorderitemusers) 	\\NOT DOCUMENTED YET
-	- [getVenueOrderUsers](#getvenueorderusers)	\\NOT DOCUMENTED YET
 - 🍽 [**Getting User Orders**](#getting-user-orders)
 	- [getUserOrders](#getuserorders)
 	- [deleteUserOrderItem](#deleteuserorderitem)
@@ -294,6 +294,128 @@ STATUS_CODE: 200
         }
     ],
     "status": "Successful Request"
+}
+```
+
+### getOrderSum
+> Returns a list of the items in the order with the count and price of each item
+
+__Path :__
+
+	GET	/getOrderSum
+	
+__Parameters :__
+
+````
+venue_order_id = $(VENUE_ORDER_ID)
+````
+	
+__Response :__
+
+```javascript
+STATUS_CODE: 200
+{
+    "status": "Successful request",
+    "result": {
+        "2e453f2f-5e30ccb8(ITEM_ID)": {
+            "sizes": {
+                "Double (SIZE_NAME)": {
+                    "count": 1,
+                    "price": 9
+                }
+            },
+            "name": "Fries",
+            "category": "Sides"
+        },
+        "2e453f2f-5e30ccb8(ITEM_ID)": {
+            "sizes": {
+                "Double (SIZE_NAME)": {
+                    "count": 1,
+                    "price": 9
+                }
+            },
+            "name": "Fries",
+            "category": "Sides"
+        }
+    }
+}
+```
+
+### getVenueOrderUsers
+> Returns a list of the users who have orders in this venue order
+
+__Path :__
+
+	GET	/getVenueOrderUsers
+	
+__Parameters :__
+
+````
+venue_order_id = $(VENUE_ORDER_ID)
+````
+	
+__Response :__
+
+```javascript
+STATUS_CODE: 200
+{
+    "status": "Successful request",
+    "result": [
+        {
+            "id": "IiFLQGerlDZdzEbb2aaczAr739h2",
+            "name": "Michael Attia",
+            "img": "https://scontent.xx.fbcdn.net/v/t1.0-1/42631921_n.jpg",
+            "phone": "0161234613",
+            "profile": "https://www.facebook.com/10155347360023787/"
+        }
+    ]
+}
+```
+
+### getOrderItemUsers
+> Returns a list of the users who ordered a certain item along with the size they ordered
+
+__Path :__
+
+	GET	/getOrderItemUsers
+	
+__Parameters :__
+
+````
+venue_order_id = $(VENUE_ORDER_ID)
+item_id = $(ITEM_ID)
+````
+	
+__Response :__
+
+```javascript
+STATUS_CODE: 200
+{
+    "status": "Successfull Request",
+    "result": [
+        {
+            "size": "Single",
+            "user": {
+                "id": "IiFLQGerlDZdzEbb2aaczAr739h2",
+                "name": "Michael Attia",
+                "phone": "",
+                "image": "https://scontent.xx.fbcdn.net/5876082301542631921_n.jpg",
+                "email": "mike-333@hotmail.com",
+                "profile": "https://www.facebook.com/10155347360023787/"
+            }
+        },
+        {
+            "size": "Double",
+            "user": {
+                "id": "IiFLQGerlDZdzEbb2aaczAr739h2",
+                "name": "Michael Attia",
+                "phone": "",
+                "image": "https://scontent.xx.fbcdn.net/5876082301542631921_n.jpg",
+                "email": "mike-333@hotmail.com",
+                "profile": "https://www.facebook.com/10155347360023787/"
+            }
+        }
+    ]
 }
 ```
 
