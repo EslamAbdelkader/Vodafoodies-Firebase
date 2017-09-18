@@ -25,7 +25,7 @@ _All requests must contain the following headers:_
 	- [getOpenOrders](#getopenorders)
 	- [getOrderSum](#getordersum)	
 	- [getVenueOrderUsers](#getvenueorderusers)
-	- [getOrderItemUsers](#getorderitemusers) 	\\NOT DOCUMENTED YET
+	- [getOrderItemUsers](#getorderitemusers)
 - 🍽 [**Getting User Orders**](#getting-user-orders)
 	- [getUserOrders](#getuserorders)
 	- [deleteUserOrderItem](#deleteuserorderitem)
