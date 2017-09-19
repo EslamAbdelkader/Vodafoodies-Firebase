@@ -29,7 +29,7 @@ exports.handler = function (req, res) {
         var userObj = {}
         userObj.id = usersIDs[i]
         userObj.name = users[userID].name
-        userObj.img = users[userID].img
+        userObj.image = users[userID].img
         userObj.phone = users[userID].phone
         userObj.profile = users[userID].fb_profile
         usersData.push(userObj);
