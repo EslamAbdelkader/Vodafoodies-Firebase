@@ -13,7 +13,7 @@ _All requests must contain the following headers:_
 
 - 👤 [**Users**](#users)
 	- [updateUserData](#updateuserdata)
-	- [getInvitationCode](#getInvitationCode)
+	- [getInvitationCode](#getinvitationcode)
 - 👨🏻‍🍳 [**Venue Data**](#venue-data)
 	- [addVenue](#addvenue)
 	- [listedVenues](#listedvenues)
