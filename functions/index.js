@@ -22,6 +22,7 @@ const getVenueData = require('./getVenueData.js');
 const venues = require('./venues.js');
 const users = require('./users.js');
 const deleteVenueOrder = require('./deleteVenueOrder');
+const getInvitationCode = require('./getInvitationCode');
 
 /*
 ==============================================================================
@@ -30,6 +31,7 @@ const deleteVenueOrder = require('./deleteVenueOrder');
 */
 // Handling Users
 exports.updateUserData = functions.https.onRequest(users.updateUser);
+exports.getInvitationCode = functions.https.onRequest(getInvitationCode.handler);
 
 // Getting Venues data
 exports.addVenue = functions.https.onRequest(venues.addVenue);

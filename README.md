@@ -13,6 +13,7 @@ _All requests must contain the following headers:_
 
 - 👤 [**Users**](#users)
 	- [updateUserData](#updateuserdata)
+	- [getInvitationCode](#getInvitationCode)
 - 👨🏻‍🍳 [**Venue Data**](#venue-data)
 	- [addVenue](#addvenue)
 	- [listedVenues](#listedvenues)
@@ -65,6 +66,31 @@ STATUS_CODE: 200
 {
     "status": "Success",
     "result": "User Added Successfully"
+}
+```
+
+### getInvitationCode
+>Generates a unique Invitation code and send it to the email provided
+
+__Path :__
+
+	GET	/getInvitationCode
+	
+__Parameters :__
+
+```javascript
+user_mail = $(USER@EMAIL.COM)
+```
+	
+__Response :__
+
+SUCCESS: 
+
+```javascript
+STATUS_CODE: 200
+{
+    "status": "Success",
+    "code": "3452dc"
 }
 ```
 	
