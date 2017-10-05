@@ -7,8 +7,13 @@ const database = admin.database();
 exports.handler = function(req, res) {
     
   // Getting data from the request
-  var userID = req.get("uid");
+  var userID = req.query.user_id
   var venueOrderID = req.query.venue_order_id
+console.log("the sent param is" + userID)
+  if (!userID){
+    userID = req.get("uid");
+    console.log("taking the sender ID")
+  }
 
   database.ref().once("value").then(function(snapShot){
     var db = snapShot.val();

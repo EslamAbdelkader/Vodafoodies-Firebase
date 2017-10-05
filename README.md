@@ -432,9 +432,11 @@ __Path :__
 	
 __Parameters :__
 
->if no parameters were passed, the response will contain all the user orders from all the venues
+>If no user id was supplied , return the data of the sender user id<br>
+>If no venue order id was given -> returns all the user orders from all venues
 
 	venue_order_id = $(VENUE_ORDER_ID)
+	user_id = $(USER_ID)
 	
 __Response :__
 
