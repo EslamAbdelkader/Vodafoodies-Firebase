@@ -23,6 +23,7 @@ const venues = require('./venues.js');
 const users = require('./users.js');
 const deleteVenueOrder = require('./deleteVenueOrder');
 const getInvitationCode = require('./getInvitationCode');
+const changeOrderStatus = require('./changeOrderStatus.js');
 
 /*
 ==============================================================================
@@ -48,6 +49,7 @@ exports.getOrderSum = functions.https.onRequest(getOrderSum.handler);
 exports.getOrderItemUsers = functions.https.onRequest(getOrderItemUsers.handler);
 exports.getVenueOrderUsers = functions.https.onRequest(getVenueOrderUsers.handler);
 exports.deleteVenueOrder = functions.https.onRequest(deleteVenueOrder.handler);
+exports.changeOrderStatus = functions.https.onRequest(changeOrderStatus.handler);
 
 // Usere Order
 exports.getUserOrders = functions.https.onRequest(getUserOrders.handler);

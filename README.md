@@ -27,6 +27,7 @@ _All requests must contain the following headers:_
 	- [getOrderSum](#getordersum)	
 	- [getVenueOrderUsers](#getvenueorderusers)
 	- [getOrderItemUsers](#getorderitemusers)
+	- [changeOrderStatus](#changeorderstatus)
 - 🍽 [**Getting User Orders**](#getting-user-orders)
 	- [getUserOrders](#getuserorders)
 	- [deleteUserOrderItem](#deleteuserorderitem)
@@ -442,6 +443,37 @@ STATUS_CODE: 200
             }
         }
     ]
+}
+```
+
+### changeOrderStatus
+> Changes the status of the venue order id given to the status given
+
+__Path :__
+
+	PATCH	/changeOrderStatus
+	
+__Parameters :__
+> N.B: status can only be
+> 
+- open
+- cancelled
+- ordered
+- delivered
+
+```javascript
+{
+"venue_order_id" : "ORDER_ID_HERE",
+"status" = "NEW_STATUS"
+}
+```
+	
+__Response :__
+
+```javascript
+STATUS_CODE: 200
+{
+	"status": "success"    
 }
 ```
 
