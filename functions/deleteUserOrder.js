@@ -8,7 +8,7 @@ exports.handler = function(req, res) {
     
     // Getting data from the request
   var userID = req.get("uid");
-  var venueOrderID = req.body.venue_order_id
+  var venueOrderID = req.query.venue_order_id
 
   // Deleting the venue order from the user node
   database.ref("users/" + userID + "/userOrders/" + venueOrderID).remove()
