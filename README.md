@@ -21,7 +21,7 @@ _All requests must contain the following headers:_
 - ➕ [**Adding & Removing Orders**](#adding-and-removing-orders)
 	- [addVenueOrder](#addvenueorder)
 	- [addUserOrder](#adduserorder)
-	- [deleteVenueOrder](#deleteVenueOrder)
+	- [deleteVenueOrder](#deletevenueorder)
 - 📋 [**Getting Venues Orders**](#getting-venues-orders)
 	- [getOpenOrders](#getopenorders)
 	- [getOrderSum](#getordersum)	
