@@ -9,10 +9,8 @@ exports.handler = function(req, res) {
   // Getting data from the request
   var userID = req.query.user_id
   var venueOrderID = req.query.venue_order_id
-console.log("the sent param is" + userID)
   if (!userID){
     userID = req.get("uid");
-    console.log("taking the sender ID")
   }
 
   database.ref().once("value").then(function(snapShot){
@@ -22,7 +20,9 @@ console.log("the sent param is" + userID)
     if (venueOrderID != undefined) {
       venueOrders = [venueOrderID]
     } else {
-      venueOrders = Object.keys(db.users[userID].userOrders);
+      if (db.users[userID].userOrders){
+        venueOrders = Object.keys(db.users[userID].userOrders);
+      }
     }
 
     // Getting each order's data
