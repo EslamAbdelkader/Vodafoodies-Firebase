@@ -14,9 +14,14 @@ exports.handler = function (req, res) {
   var responseObj = {}
 
   //The DB references needed
+  
   database.ref().once("value").then(function(snapShot){
     var db = snapShot.val();
-    var ordersKeys = Object.keys(db.venueOrders);
+    var ordersKeys = []
+    // if there's data, get its keys
+    if (db.venueOrders){
+      ordersKeys = db.venueOrders;
+    }
 
     responseObj.result = []
     for (var i = 0; i < ordersKeys.length; i++) {
@@ -51,8 +56,9 @@ exports.handler = function (req, res) {
     responseObj.status = "Successful Request"
     res.status(200).send(responseObj);
 
-  }).catch(function(error){
-    console.log(JSON.stringify(error));
-    res.status(500).send({error : JSON.stringify(error)});
-  });
+  })
+  // .catch(function(error){
+  //   console.log(JSON.stringify(error));
+  //   res.status(500).send({error : JSON.stringify(error)});
+  // });
 }
