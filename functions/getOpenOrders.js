@@ -14,17 +14,25 @@ exports.handler = function (req, res) {
   var responseObj = {}
 
   //The DB references needed
+  
   database.ref().once("value").then(function(snapShot){
     var db = snapShot.val();
-    var ordersKeys = Object.keys(db.venueOrders);
+    var ordersKeys = []
+    // if there's data, get its keys
+    if (db.venueOrders){
+      ordersKeys = db.venueOrders;
+    }
 
     responseObj.result = []
     for (var i = 0; i < ordersKeys.length; i++) {
       var resultItem = {}
       resultItem.venue_order_id = ordersKeys[i]
+      resultItem.order_time = db.venueOrders[ordersKeys[i]].order_time
+      resultItem.order_status = db.venueOrders[ordersKeys[i]].order_status
 
       // Filling in venue data
       var venueID = db.venueOrders[ordersKeys[i]].venue_id
+      resultItem.venue_id = venueID
       resultItem.venue_name = db.venues[venueID].venue_name
       resultItem.venue_image = db.venues[venueID].venue_image
       resultItem.venue_phones = db.venues[venueID].venue_phones
@@ -35,8 +43,9 @@ exports.handler = function (req, res) {
       resultItem.owner.id = ownerID
       resultItem.owner.name = db.users[ownerID].name
       resultItem.owner.phone = db.users[ownerID].phone
-      resultItem.owner.image = db.users[ownerID].image
+      resultItem.owner.image = db.users[ownerID].img
       resultItem.owner.email = db.users[ownerID].email
+      resultItem.owner.profile = db.users[ownerID].fb_profile
 
       //Appending result item
       responseObj.result.push(resultItem);
@@ -47,8 +56,9 @@ exports.handler = function (req, res) {
     responseObj.status = "Successful Request"
     res.status(200).send(responseObj);
 
-  }).catch(function(error){
-    console.log(JSON.stringify(error));
-    res.status(500).send({error : JSON.stringify(error)});
-  });
+  })
+  // .catch(function(error){
+  //   console.log(JSON.stringify(error));
+  //   res.status(500).send({error : JSON.stringify(error)});
+  // });
 }

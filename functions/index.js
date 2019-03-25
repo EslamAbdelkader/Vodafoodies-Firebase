@@ -9,18 +9,21 @@ admin.initializeApp(functions.config().firebase);
 ==                           Importnig needed files                         ==
 ==============================================================================
 */
-const deleteUserOrder = require('./deleteUserOrder.js')
-const deleteUserOrderItem = require('./deleteUserOrderItem.js')
-const getOpenOrders = require('./getOpenOrders.js')
-const getOrderItemUsers = require('./getOrderItemUsers.js')
-const getOrderSum = require('./getOrderSum.js')
-const getUserOrders = require('./getUserOrders.js')
-const getVenueOrderUsers = require('./getVenueOrderUsers.js')
-const putUserOrder = require('./putUserOrder.js')
-const putVenueOrder = require('./putVenueOrder.js')
-const getVenueData = require('./getVenueData.js')
-const venues = require('./venues.js')
-const users = require('./users.js')
+const deleteUserOrder = require('./deleteUserOrder.js');
+const deleteUserOrderItem = require('./deleteUserOrderItem.js');
+const getOpenOrders = require('./getOpenOrders.js');
+const getOrderItemUsers = require('./getOrderItemUsers.js');
+const getOrderSum = require('./getOrderSum.js');
+const getUserOrders = require('./getUserOrders.js');
+const getVenueOrderUsers = require('./getVenueOrderUsers.js');
+const putUserOrder = require('./putUserOrder.js');
+const putVenueOrder = require('./putVenueOrder.js');
+const getVenueData = require('./getVenueData.js');
+const venues = require('./venues.js');
+const users = require('./users.js');
+const deleteVenueOrder = require('./deleteVenueOrder');
+const getInvitationCode = require('./getInvitationCode');
+const changeOrderStatus = require('./changeOrderStatus.js');
 
 /*
 ==============================================================================
@@ -29,21 +32,24 @@ const users = require('./users.js')
 */
 // Handling Users
 exports.updateUserData = functions.https.onRequest(users.updateUser);
+exports.getInvitationCode = functions.https.onRequest(getInvitationCode.handler);
 
 // Getting Venues data
 exports.addVenue = functions.https.onRequest(venues.addVenue);
 exports.listedVenues = functions.https.onRequest(venues.listedVenues);
-exports.getVenueData = functions.https.onRequest(getVenueData.handler);
+exports.getVenueMenu = functions.https.onRequest(getVenueData.handler);
 
 // Adding Orders
-exports.putVenueOrder = functions.https.onRequest(putVenueOrder.handler);
-exports.putUserOrder = functions.https.onRequest(putUserOrder.handler);
+exports.addVenueOrder = functions.https.onRequest(putVenueOrder.handler);
+exports.addUserOrder = functions.https.onRequest(putUserOrder.handler);
 
 // Venue Order
 exports.getOpenOrders = functions.https.onRequest(getOpenOrders.handler);
 exports.getOrderSum = functions.https.onRequest(getOrderSum.handler);
 exports.getOrderItemUsers = functions.https.onRequest(getOrderItemUsers.handler);
 exports.getVenueOrderUsers = functions.https.onRequest(getVenueOrderUsers.handler);
+exports.deleteVenueOrder = functions.https.onRequest(deleteVenueOrder.handler);
+exports.changeOrderStatus = functions.https.onRequest(changeOrderStatus.handler);
 
 // Usere Order
 exports.getUserOrders = functions.https.onRequest(getUserOrders.handler);

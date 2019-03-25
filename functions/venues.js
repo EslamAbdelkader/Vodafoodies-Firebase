@@ -16,7 +16,9 @@ exports.listedVenues = function(req, res){
       var obj = {}
   
       for (var i = 0; i < keys.length; i++) {
-        obj[keys[i]] = listedVenues[keys[i]].venue_name
+        obj[keys[i]] ={}
+        obj[keys[i]].name = listedVenues[keys[i]].venue_name
+        obj[keys[i]].img = listedVenues[keys[i]].venue_image
       }
   
       res.send(obj)
@@ -32,12 +34,34 @@ exports.addVenue = function(req, res){
     var venues = database.ref("venues");
   
     // Getting data from the request
-    var venueData = req.body.venue_data
-  
-    //Pushing Venue Node to Database
-    venues.push(venueData);
-  
-    //Responding with Success Message
-    res.send("Venue Added successfully to database");
-  
+    var vName = req.body.venue_name
+    var key = ""
+
+    venues.once("value").then(function(snapShot){
+      var listedVenues = snapShot.val()
+      var keys = Object.keys(listedVenues);
+      var exists = false
+      var respObj = {}
+      for (var i = 0; i < keys.length; i++) {
+        if(vName == listedVenues[keys[i]].venue_name){
+          exists = true;
+          key = keys[i];
+        }
+      }
+
+      if (!exists){
+         key = venues.push(req.body);
+         respObj.result = "Added successfully with key" + key
+      }else{
+         respObj.result = "Already Exists with key" + key
+      }
+
+      //Responding with Success Message
+    res.setHeader('Access-Control-Allow-Origin', 'https://www.elmenus.com');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.send(respObj);
+
+    });
   };

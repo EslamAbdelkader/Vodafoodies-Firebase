@@ -7,7 +7,7 @@ const database = admin.database();
 // with related data about their orders
 exports.handler = function (req, res) {
   // Getting data from the request
-  var venueOrderId = req.body.venue_order_id
+  var venueOrderId = req.query.venue_order_id
 
   //The DB references needed
   var venueOrder = database.ref("venueOrders/" + venueOrderId + "/userOrders");
@@ -18,7 +18,6 @@ exports.handler = function (req, res) {
   //getting the users Ids from the venueOrder node
   venueOrder.once("value")
     .then(function (snapShot) {
-
       usersIDs = Object.keys(snapShot.val())
     })
     //getting the users data from the users node
@@ -30,7 +29,9 @@ exports.handler = function (req, res) {
         var userObj = {}
         userObj.id = usersIDs[i]
         userObj.name = users[userID].name
-        userObj.img = users[userID].img
+        userObj.image = users[userID].img
+        userObj.phone = users[userID].phone
+        userObj.profile = users[userID].fb_profile
         usersData.push(userObj);
       }
       // Responding with a success message
@@ -44,6 +45,5 @@ exports.handler = function (req, res) {
         console.log(error);
         res.status(500).send({ error: "couldn't retrieve data from the database" });
       })
-
     );
 };
